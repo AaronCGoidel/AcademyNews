@@ -9,7 +9,7 @@ var router = express.Router();
 app.use(express.static(__dirname + '/public'));
 var path = __dirname + '/public/views/';
 
-var PORT = 5050;
+var PORT = 8082;
 
 router.use(function (req,res,next) {
     console.log("/" + req.method);
