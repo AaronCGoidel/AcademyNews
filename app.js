@@ -4,7 +4,10 @@
 var express = require("express");
 var app = express();
 var router = express.Router();
-var path = __dirname + '/views/';
+
+
+app.use(express.static(__dirname + '/public'));
+var path = __dirname + '/public/views/';
 
 var PORT = 5050;
 
@@ -16,6 +19,10 @@ router.use(function (req,res,next) {
 router.get("/",function(req,res){
     res.sendFile(path + "index.html");
 });
+
+router.get("/nav",function (req,res) {
+    res.sendfile(path + "nav.html")
+})
 
 app.use("/",router);
 
