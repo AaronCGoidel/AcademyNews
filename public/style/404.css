@@ -1,0 +1,23 @@
+* { font-family:verdana; text-align:center; }
+
+body {
+
+    background: #efefef;
+
+}
+#error {
+
+    font-size:30px;
+
+}
+#title {
+
+    font-size:80px;
+
+}
+
+#other {
+
+    font-size:30px;
+
+}
