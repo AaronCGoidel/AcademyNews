@@ -1,0 +1,87 @@
+.card {
+    margin: 15px;
+    border: none;
+    border-radius: 0;
+}
+
+.card.split .card-block .card-caption {
+    height: 149px;
+    overflow: hidden;
+}
+
+.card.split .card-block .card-title {
+    font-size: 18px;
+}
+
+.card .card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card .card-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    color: #fff;
+}
+
+.card .card-img {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+.card .card-block .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card .card-block .card-title:last-child {
+    margin-bottom: 0;
+}
+
+.card .card-block .card-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+
+.card .card-block .card-text:last-child {
+    margin-bottom: 0;
+}
+
+.card .card-block .card-text small {
+    color: #d83c3c;
+}
+
+.card .card-img-overlay {
+    padding: 0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+40,000000+100&0+40,0.2+100 */
+    /* FF3.6-15 */
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.card .card-img-overlay .card-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.card .card-img-overlay .card-block .card-title {
+    font-size: 18px;
+}
+
+.card .card-img-overlay .card-block .card-text {
+    font-size: 14px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .card.split .card-block .card-caption {
+        height: 108px;
+    }
+}

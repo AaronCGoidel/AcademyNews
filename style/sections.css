@@ -1,0 +1,22 @@
+section.content-slider .title {
+    color: #f400dd;
+    font-weight: bold;
+}
+
+section.content-slider .swiper-container {
+    background: #072e51;
+    padding-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+section.content-slider .swiper-container .swiper-wrapper {
+    box-sizing: border-box;
+}
+
+
+section.content-slider .swiper-container .prev-button {
+    left: auto;
+    right: 50px;
+}

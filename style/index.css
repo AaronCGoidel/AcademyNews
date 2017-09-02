@@ -1,0 +1,57 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutters>.col,
+.no-gutters>[class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+body {
+    background: #fbfbfb;
+}
+
+body.sidenav-open {
+    overflow: hidden;
+}
+
+body.sidenav-open .sidenav {
+    transform: translateX(0);
+}
+
+body.sidenav-open .sidenav-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-slider {
+    margin-bottom: 20px;
+}
+
+.main-slider .swiper-container {
+    width: 100%;
+    max-height: 520px;
+}
+
+.main-slider .swiper-container .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #000;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Center slide text vertically */
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
