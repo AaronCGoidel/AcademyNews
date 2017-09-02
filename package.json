@@ -1,0 +1,24 @@
+{
+  "name": "academy-news",
+  "version": "0.2.0",
+  "description": "The website for the MKA newspaper",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "rethinkdb": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronCGoidel/AcademyNews.git"
+  },
+  "author": "Aaron Goidel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronCGoidel/AcademyNews/issues"
+  },
+  "homepage": "https://github.com/AaronCGoidel/AcademyNews#readme"
+}
