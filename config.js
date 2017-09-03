@@ -3,7 +3,7 @@ module.exports = {
         host: 'localhost',
         port: 28015,
         authKey: '',
-        db: 'rethinkdb'
+        db: 'news'
     },
     express: {
         port: 3000
