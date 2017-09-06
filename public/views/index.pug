@@ -1,0 +1,134 @@
+doctype html
+html(lang='tr')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title The Academy News | MKA's Student Run Newspaper
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+        link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+        link(rel='stylesheet', href='../style/index.css')
+        link(rel='stylesheet', href='../style/navs.css')
+        link(rel='stylesheet', href='../style/cards.css')
+        link(rel='stylesheet', href='../style/sections.css')
+        link(rel='stylesheet', href='../style/responsive.css')
+    body
+        .sidenav-overlay(onclick='closeNav()')
+        header
+            #sidenav.sidenav
+                a.closebtn(href='javascript:;', onclick='closeNav()')
+                    i.fa.fa-times
+                span.nav-item.title MENU
+                a.nav-item(href='#') Sports
+                a.nav-item(href='#') World News
+                a.nav-item(href='#') School News
+                a.nav-item(href='#') About
+            nav.navbar
+                .container
+                    .row.align-items-center
+                        .col
+                            a.navbar-brand(href='javascript:;', onclick='openNav()')
+                                i.fa.fa-bars.fa-lg(aria-hidden='true')
+                        .col.text-center
+                            a.navbar-brand(href='#')
+                                img(src='../assets/logo.png', height='100')
+                        .col.text-right
+                            .social-menu
+                                a(href='javascript:;')
+                                    i.fa.fa-facebook-official.fa-lg(aria-hidden='true')
+                                a(href='javascript:;')
+                                    i.fa.fa-twitter.fa-lg(aria-hidden='true')
+                                a(href='javascript:;')
+                                    i.fa.fa-instagram.fa-lg(aria-hidden='true')
+                                a(href='javascript:;')
+                                    i.fa.fa-youtube.fa-lg(aria-hidden='true')
+        main
+            .container
+                section.featured-content
+                    .featured-container
+                        .row
+                            .col-4.mb-3
+                                .card.card-inverse
+                                    a.card-link(href='/article/test')
+                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
+                                        .card-img-overlay
+                                            .card-block
+                                                h4.card-title Profound News
+                                                p.card-text Blah blah blah blah blah blah blah blah blah blah blah blah blah.
+                                                p.card-text
+                                                    small By:
+                            .col-8.mb-3
+                                .card.split.mb-2
+                                    a.card-link(href='/article/002')
+                                        i.fa.fa-newspaper-o.card-icon(aria-hidden='true')
+                                        .row.no-gutters
+                                            .col
+                                                img.card-img(src='http://placehold.it/380x210', alt='Card image')
+                                            .col
+                                                .card-block
+                                                    .card-caption
+                                                        h4.card-title Wow Such Information
+                                                        p.card-text blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah
+                                                    p.card-text.text-right
+                                                        small By: Captain America
+                                .card.split
+                                    a.card-link(href='#')
+                                        .row.no-gutters
+                                            .col
+                                                img.card-img(src='http://placehold.it/380x210', alt='Card image')
+                                            .col
+                                                .card-block
+                                                    .card-caption
+                                                        h4.card-title Awesome Headline!
+                                                        p.card-text
+                                                            | Just some text to fill up space. Just some text to fill up space. Just some text to fill up space. Just some text to fill up space. Just some text to fill up space.
+                                                    p.card-text.text-right
+                                                        small By: Albus Dumbledore
+                .row
+                    .col-6.mb-3
+                        .card.card-inverse
+                            img.card-img(src='http://placehold.it/550x300', alt='Card image')
+                            .card-img-overlay
+                                .card-block.text-center
+                                    h4.card-title Card title
+                                    p.card-text
+                                        | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
+                    .col-6.mb-3
+                        .card.card-inverse
+                            img.card-img(src='http://placehold.it/550x300', alt='Card image')
+                            .card-img-overlay
+                                .card-block.text-center
+                                    h4.card-title Card title
+                                    p.card-text
+                                        | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
+                .row
+                    .col-6.mb-3
+                        .card.card-inverse
+                            img.card-img(src='http://placehold.it/550x300', alt='Card image')
+                            .card-img-overlay
+                                .card-block.text-center
+                                    h4.card-title Card title
+                                    p.card-text
+                                        | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
+                    .col-6.mb-3
+                        .card.card-inverse
+                            img.card-img(src='http://placehold.it/550x300', alt='Card image')
+                            .card-img-overlay
+                                .card-block.text-center
+                                    h4.card-title Card title
+                                    p.card-text
+                                        | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
+        footer
+            nav.navbar
+                .container
+                    .row
+                        .col
+                            span.navbar-text agoidel2019@mka.org
+                        .col.text-right
+                            span.navbar-text 2017 Montclair Kimberley Academy. All rights reserved.
+        // jQuery first, then Tether, then Bootstrap JS.
+        script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+        // Scripts
+        script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+        script(src='../scripts/index.js')
