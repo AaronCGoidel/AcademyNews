@@ -32,13 +32,13 @@ router.get("/", (req,res) => {
 });
 
 router.get("/article/test", function(req, res){
-    res.sendfile(path + "articleTemplate.html");
+    res.render(path + "articleTest.pug");
 });
 
 app.use("/",router);
 
 app.use("*",function(req,res){
-    res.sendFile(path + "404.pug");
+    res.render(path + "404.pug");
 });
 
 app.listen(PORT,function(){
