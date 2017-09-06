@@ -7,5 +7,9 @@ module.exports = {
     },
     express: {
         port: 3000
+    },
+    featured: {
+        piece1: '001',
+        piece2: '002'
     }
 };
