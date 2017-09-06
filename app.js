@@ -25,20 +25,24 @@ router.use(function (req,res,next) {
     next();
 });
 
-router.get("/", (req,res) => {
-    r.table('articles').filter(r.row('id').eq("001").or(r.row('id').eq("002"))).run(connection)
-        .then(posts => res.render(path + "index.pug", {posts}))
-
+router.get("/", async (req,res,next) => {
+    try {
+        const cursor = await r.table('articles').filter(r.row('id').eq("001").or(r.row('id').eq("002"))).run(connection);
+        const posts = await cursor.toArray();
+        res.render("index", {posts});
+    }catch(err){
+        next(err);
+    }
 });
 
 router.get("/article/test", function(req, res){
-    res.render(path + "articleTest.pug");
+    res.render("articleTest");
 });
 
 app.use("/",router);
 
 app.use("*",function(req,res){
-    res.render(path + "404.pug");
+    res.render("404");
 });
 
 app.listen(PORT,function(){
