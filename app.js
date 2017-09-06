@@ -18,33 +18,27 @@ var path = __dirname + '/public/views/';
 
 var PORT = config.express.port;
 
+app.set("view engine", "pug");
+
 router.use(function (req,res,next) {
     console.log("/" + req.method);
     next();
 });
 
-router.get("/",function(req,res){
-    res.sendFile(path + "index.html");
+router.get("/", (req,res) => {
+    r.table('articles').filter(r.row('id').eq("001").or(r.row('id').eq("002"))).run(connection)
+        .then(posts => res.render(path + "index.pug", {posts}))
 
 });
 
-router.get("/article/*",function(req, res){
-    res.sendfile(path + "test.html");
-    var getID = /[^/]*$/.exec(req.path)[0];
-    console.log(getID);
-    r.table('articles').filter(r.row('id').eq(getID)).run(connection, function(err, cursor) {
-        if (err) throw err;
-        cursor.toArray(function(err, result) {
-            if (err) throw err;
-            console.log(JSON.stringify(result, null, 2));
-        });
-    });
+router.get("/article/test", function(req, res){
+    res.sendfile(path + "articleTemplate.html");
 });
 
 app.use("/",router);
 
 app.use("*",function(req,res){
-    res.sendFile(path + "404.html");
+    res.sendFile(path + "404.pug");
 });
 
 app.listen(PORT,function(){
