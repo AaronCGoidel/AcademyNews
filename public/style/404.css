@@ -13,14 +13,8 @@ body {
     color: #666;
 }
 
-.wrapper {
-    max-width: 50%;
-    margin: 1em auto;
-}
 
 p {
-    margin: 0 0 1em 0;
-    line-height: 1;
     font-weight: bold;
     text-align: center;
     font-size: 2em;
@@ -30,8 +24,4 @@ p span {
     font-size: 4em;
     display: block;
     font-style: normal;
-}
-
-iframe {
-
 }
