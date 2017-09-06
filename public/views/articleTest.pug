@@ -1,0 +1,71 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        title The Academy News | MKA's Student Run Newspaper
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+        link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+        link(rel='stylesheet', href='../style/index.css')
+        link(rel='stylesheet', href='../style/navs.css')
+        link(rel='stylesheet', href='../style/cards.css')
+        link(rel='stylesheet', href='../style/sections.css')
+        link(rel='stylesheet', href='../style/responsive.css')
+        link(rel='stylesheet', href='../style/article.css')
+    body
+        .sidenav-overlay(onclick='closeNav()')
+        header
+            #sidenav.sidenav
+                a.closebtn(href='javascript:;', onclick='closeNav()')
+                    i.fa.fa-times
+                span.nav-item.title MENU
+                a.nav-item(href='/') Home
+                a.nav-item(href='#') Sports
+                a.nav-item(href='#') About
+            nav.navbar
+                .container
+                    .row.align-items-center
+                        .col
+                            a.navbar-brand(href='javascript:;', onclick='openNav()')
+                                i.fa.fa-bars.fa-lg(aria-hidden='true')
+                        .col.text-center
+                            a.navbar-brand(href='#')
+                                img(src='../assets/logo.png', height='100')
+                        .col.text-right
+                            .social-menu
+                                a(href='javascript:;')
+                                    i.fa.fa-facebook-official.fa-lg(aria-hidden='true')
+                                a(href='javascript:;')
+                                    i.fa.fa-twitter.fa-lg(aria-hidden='true')
+                                a(href='javascript:;')
+                                    i.fa.fa-instagram.fa-lg(aria-hidden='true')
+                                a(href='javascript:;')
+                                    i.fa.fa-youtube.fa-lg(aria-hidden='true')
+        article.article
+            header.header
+                .category Sports
+                h1.headline
+                    | Profound News
+                .meta
+                    span.author
+                        | by
+                        span.author-name Arthur Dent
+                    span.pub-date August. 30, 2017
+            figure
+                img(src='../assets/AbbeyRoad.jpg', alt='Picture YAY!')
+                figcaption
+                    strong Image By:
+                    |  IDK... Some British Guy
+            p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet finibus pretium. Duis interdum dui nisi. Sed consequat purus nec lorem commodo porta. Proin augue turpis, fringilla at ligula sit amet, vehicula vestibulum orci. Cras orci justo, facilisis vel mauris nec, lobortis consequat urna. Sed ultrices ante ipsum, id ultrices elit tempor id. Maecenas cursus gravida augue congue aliquet. Vestibulum convallis leo vitae lorem tempor ullamcorper. Etiam vestibulum fringilla fermentum. Quisque id ipsum sed dui eleifend commodo. Donec molestie porta neque, ut faucibus enim elementum at. Phasellus urna nisi, interdum sed consequat ac, accumsan non justo. Nam nunc sapien, fermentum tristique suscipit quis, rutrum vel nulla.
+            h2 Section
+            p
+                | Donec vitae augue quis tortor porta euismod at eget felis. Praesent sit amet gravida libero. Aenean nec leo dolor. Praesent sit amet purus tortor. Duis in tempus nibh. Sed convallis fermentum dapibus. Morbi sed euismod eros, a venenatis justo. Cras ornare vehicula nulla non rhoncus. Vestibulum tincidunt eros diam. Aliquam eleifend eleifend leo, et pellentesque turpis ultricies ac. Aliquam eget elementum diam.
+            p
+                | Sed sit amet ullamcorper nunc. Morbi dignissim hendrerit orci egestas finibus. Donec mollis diam et fringilla varius. Sed porta orci sit amet mauris ornare, id gravida odio dignissim. Nunc facilisis risus tincidunt est commodo, sit amet tincidunt quam eleifend. Ut ut magna eget arcu venenatis aliquam. Praesent lacinia enim orci, in blandit erat luctus eu. Nunc tempus sapien non justo vulputate ultrices. Aenean at orci finibus, dictum quam a, vulputate lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+        script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+        // Scripts
+        script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+        script(src='../scripts/index.js')
