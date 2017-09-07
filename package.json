@@ -8,9 +8,9 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "latest",
-    "rethinkdb": "latest",
-    "pug": "latest"
+    "express": "4.15.4",
+    "rethinkdb": "2.3.3",
+    "pug": "2.0.0"
   },
   "repository": {
     "type": "git",
