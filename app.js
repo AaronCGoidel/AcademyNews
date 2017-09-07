@@ -16,7 +16,7 @@ r.connect( config.rethinkdb, function(err, conn) {
 app.use(express.static(__dirname + '/public'));
 
 
-var PORT = config.express.port;
+var PORT = process.env.PORT || config.express.port;;
 
 app.set("view engine", "pug");
 
