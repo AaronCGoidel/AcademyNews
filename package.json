@@ -10,7 +10,7 @@
   "dependencies": {
     "express": "4.15.4",
     "rethinkdb": "2.3.3",
-    "pug": "2.0.0"
+    "pug": "2.0.0-rc.3"
   },
   "repository": {
     "type": "git",
