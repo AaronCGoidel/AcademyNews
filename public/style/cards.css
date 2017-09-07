@@ -2,6 +2,15 @@
     margin: 15px;
     border: none;
     border-radius: 0;
+
+}
+
+.card .card-small {
+    box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.26);
+    height: 120px;
+    width: 1130px;
+    overflow: hidden;
+
 }
 
 .card.split .card-block .card-caption {
@@ -10,7 +19,7 @@
 }
 
 .card.split .card-block .card-title {
-    font-size: 18px;
+    font-size: 32px;
 }
 
 .card .card-link {
@@ -73,7 +82,8 @@
 }
 
 .card .card-img-overlay .card-block .card-title {
-    font-size: 18px;
+    font-size: 32px;
+
 }
 
 .card .card-img-overlay .card-block .card-text {
