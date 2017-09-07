@@ -47,7 +47,7 @@ html(lang='tr')
                         .row
                             .col-4.mb-3
                                 .card.card-inverse
-                                    a.card-link(href='/article/test')
+                                    a.card-link(href='/article/' + featuredPosts[0].id)
                                         img.card-img(src='http://placehold.it/370x430', alt='Card image')
                                         .card-img-overlay
                                             .card-block
@@ -58,7 +58,7 @@ html(lang='tr')
                                                     small=featuredPosts[0].author
                             .col-8.mb-3
                                 .card.split.mb-2
-                                    a.card-link(href='/article/002')
+                                    a.card-link(href='/article/' + featuredPosts[1].id)
                                         .row.no-gutters
                                                 .card-block
                                                     .card-caption
@@ -68,7 +68,7 @@ html(lang='tr')
                                                         small By:&nbsp
                                                         small=featuredPosts[1].author
                                 .card.split
-                                    a.card-link(href='#')
+                                    a.card-link(href='/article/' + featuredPosts[2].id)
                                         .row.no-gutters
                                                 .card-block
                                                     .card-caption
@@ -85,11 +85,10 @@ html(lang='tr')
                                     .row.no-gutters
                                         .card-block
                                             .card-caption
-                                                h4.card-title=featuredPosts[1].title
+                                                h4.card-title blah
                                                 p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt felis dapibus tortor dictum commodo. Suspendisse eu elit ut ante bibendum cursus non a risus.
                                             p.card-text.text-right
-                                                small By:&nbsp
-                                                small=featuredPosts[1].author
+                                                small By: blah
                     .col-8.mb-3
                         .card.split.mb-2
                             .card-small

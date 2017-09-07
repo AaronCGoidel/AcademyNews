@@ -33,7 +33,7 @@ router.get("/", async (req,res, next) => {
                 .or(r.row('id').eq(config.featured.article3ID)))
             .run(connection);
         const featuredPosts = await cursor.toArray();
-        res.render("index", {featuredPosts});
+        res.render("index", {featuredPosts})
     }catch(err){
         next(err);
     }
@@ -41,6 +41,18 @@ router.get("/", async (req,res, next) => {
 
 router.get("/article/test", function(req, res){
     res.render("articleTest");
+});
+
+router.get("/article/*", function(req, res) {
+    var getID = /[^/]*$/.exec(req.path)[0];
+    r.table('articles').filter(r.row('id').eq(getID)).run(connection, function(err, cursor) {
+        if (err) throw err;
+        cursor.toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.render("article", {result})
+        });
+    });
 });
 
 app.use("/",router);
