@@ -7,7 +7,7 @@ var config = require(__dirname + '/config.js');
 app.use(express.static(__dirname + '/public'));
 
 
-var PORT = config.express.port;
+var PORT = process.env.PORT || config.express.port;
 
 app.set("view engine", "pug");
 
