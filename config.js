@@ -6,7 +6,7 @@ module.exports = {
         db: 'news'
     },
     express: {
-        port: 3000
+        port: 5000
     },
     featured: {
         article1ID: '001',

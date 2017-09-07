@@ -15,6 +15,10 @@ router.use(function (req,res,next) {
     next();
 });
 
+router.get("/", function(req, res){
+    console.log("test");
+    res.render("404");
+});
 
 router.get('/db', function (request, response) {
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -31,9 +35,6 @@ router.get('/db', function (request, response) {
 
 app.use("/",router);
 
-app.use("/",function(req,res){
-    res.render("404");
-});
 
 app.listen(PORT,function(){
     console.log("Listening on Port " + PORT);
