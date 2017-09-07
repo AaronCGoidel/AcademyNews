@@ -14,7 +14,6 @@ r.connect( config.rethinkdb, function(err, conn) {
 });
 
 app.use(express.static(__dirname + '/public'));
-var path = __dirname + '/public/views/';
 
 var PORT = config.express.port;
 
