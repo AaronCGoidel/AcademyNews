@@ -55,6 +55,10 @@ router.get("/article/*", function(req, res) {
     });
 });
 
+router.get("/upload", function(req, res) {
+    res.render("upload")
+});
+
 app.use("/",router);
 
 app.use("*",function(req,res){
