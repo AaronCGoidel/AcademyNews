@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "express": "latest",
-    "rethinkdb": "latest"
+    "rethinkdb": "latest",
+    "pug": "latest"
   },
   "repository": {
     "type": "git",
