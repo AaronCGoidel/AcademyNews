@@ -12,10 +12,6 @@ html(lang='tr')
         link(rel='stylesheet', href='../style/sections.css')
         link(rel='stylesheet', href='../style/responsive.css')
     body
-
-        - console.dir(posts)
-
-
         .sidenav-overlay(onclick='closeNav()')
         header
             #sidenav.sidenav
@@ -55,10 +51,11 @@ html(lang='tr')
                                         img.card-img(src='http://placehold.it/370x430', alt='Card image')
                                         .card-img-overlay
                                             .card-block
-                                                h4.card-title Profound News
-                                                p.card-text Blah blah blah blah blah blah blah blah blah blah blah blah blah.
+                                                h4.card-title=featuredPosts[0].title
+                                                p.card-text=featuredPosts[0].blurb
                                                 p.card-text
-                                                    small By:
+                                                    small By: &nbsp
+                                                    small=featuredPosts[0].author
                             .col-8.mb-3
                                 .card.split.mb-2
                                     a.card-link(href='/article/002')
@@ -69,10 +66,11 @@ html(lang='tr')
                                             .col
                                                 .card-block
                                                     .card-caption
-                                                        h4.card-title Wow Such Information
-                                                        p.card-text blah blah blah blah blah blah blah blahblah blah blah blah blah blah blah blah
+                                                        h4.card-title=featuredPosts[1].title
+                                                        p.card-text=featuredPosts[1].blurb
                                                     p.card-text.text-right
-                                                        small By: Captain America
+                                                        small By: &nbsp
+                                                        small=featuredPosts[1].author
                                 .card.split
                                     a.card-link(href='#')
                                         .row.no-gutters
@@ -81,11 +79,11 @@ html(lang='tr')
                                             .col
                                                 .card-block
                                                     .card-caption
-                                                        h4.card-title Awesome Headline!
-                                                        p.card-text
-                                                            | Just some text to fill up space. Just some text to fill up space. Just some text to fill up space. Just some text to fill up space. Just some text to fill up space.
+                                                        h4.card-title=featuredPosts[2].title
+                                                        p.card-text=featuredPosts[2].blurb
                                                     p.card-text.text-right
-                                                        small By: Albus Dumbledore
+                                                        small By: &nbsp
+                                                        small=featuredPosts[2].author
                 .row
                     .col-6.mb-3
                         .card.card-inverse
@@ -103,7 +101,7 @@ html(lang='tr')
                                     h4.card-title Card title
                                     p.card-text
                                         | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
-                .row
+
                     .col-6.mb-3
                         .card.card-inverse
                             img.card-img(src='http://placehold.it/550x300', alt='Card image')
@@ -112,14 +110,7 @@ html(lang='tr')
                                     h4.card-title Card title
                                     p.card-text
                                         | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
-                    .col-6.mb-3
-                        .card.card-inverse
-                            img.card-img(src='http://placehold.it/550x300', alt='Card image')
-                            .card-img-overlay
-                                .card-block.text-center
-                                    h4.card-title Card title
-                                    p.card-text
-                                        | Blah blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things blah blah... stuff and things
+
         footer
             nav.navbar
                 .container

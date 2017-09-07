@@ -25,11 +25,15 @@ router.use(function (req,res,next) {
     next();
 });
 
-router.get("/", async (req,res,next) => {
+router.get("/", async (req,res, next) => {
     try {
-        const cursor = await r.table('articles').filter(r.row('id').eq("001").or(r.row('id').eq("002"))).run(connection);
-        const posts = await cursor.toArray();
-        res.render("index", {posts});
+        const cursor = await r.table('articles')
+            .filter(r.row('id').eq(config.featured.article1ID)
+                .or(r.row('id').eq(config.featured.article2ID))
+                .or(r.row('id').eq(config.featured.article3ID)))
+            .run(connection);
+        const featuredPosts = await cursor.toArray();
+        res.render("index", {featuredPosts});
     }catch(err){
         next(err);
     }

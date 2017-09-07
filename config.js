@@ -9,7 +9,8 @@ module.exports = {
         port: 3000
     },
     featured: {
-        piece1: '001',
-        piece2: '002'
+        article1ID: '001',
+        article2ID: '002',
+        article3ID: '003'
     }
 };
