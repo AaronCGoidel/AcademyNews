@@ -1,9 +1,7 @@
 var express = require("express");
 var app = express();
 var router = express.Router();
-var pg = require('pg');
-
-console.log(process.env.DATABASE_URL);
+var Sequelize = require("sequelize");
 
 var config = require(__dirname + '/config.js');
 
@@ -23,6 +21,17 @@ router.get("/", function(req, res){
     console.log("test");
     res.render("404");
 });
+
+const sequelize = new Sequelize(process.env.DATABASE_URL || config.data.URL);
+
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
 
 app.use("/",router);
 
