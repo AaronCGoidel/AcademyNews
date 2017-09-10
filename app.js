@@ -52,26 +52,6 @@ router.use(function (req,res,next) {
 });
 
 
-// force: true will drop the table if it already exists
-Article.sync({force: false}).then(() => {
-    // Table created
-    return Article.create({
-        author: "Arthur Dent",
-        id: "001",
-        title: "Test Article",
-        blurb: "A quick summary",
-        content: "This is a super interesting article full of fantastic journalism."
-    });
-});
-
-Article.create({
-    author: "Kevin Spacey",
-    id: "002",
-    title: "Democracy is so Overrated",
-    blurb: "You build your future, it isn't handed to you",
-    content: "There are two kinds of pain. The sort of pain that makes you strong, or useless pain. The sort of pain that’s only suffering. I have no patience for useless things."
-});
-
 Article.findAll().then(data => {
     console.log(data)
 });
