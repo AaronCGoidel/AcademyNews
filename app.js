@@ -52,7 +52,11 @@ router.use(function (req,res,next) {
 });
 
 
-Article.findAll().then(data => {
+Article.findAll({
+    where: {
+        id: "001"
+    }
+}).then(data => {
     console.log(data)
 });
 
