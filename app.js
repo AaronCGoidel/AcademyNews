@@ -51,18 +51,6 @@ router.use(function (req,res,next) {
     next();
 });
 
-// force: true will drop the table if it already exists
-Article.sync({force: true}).then(() => {
-    // Table created
-    return Article.create({
-        author: "Kevin Spacey",
-        id: "002",
-        title: "Democracy is so Overrated",
-        blurb: "You build your future, it isn't handed to you",
-        content: "There are two kinds of pain. The sort of pain that makes you strong, or useless pain. The sort of pain that’s only suffering. I have no patience for useless things."
-    });
-});
-
 Article.findAll().then(data => {
     console.log(data)
 });
