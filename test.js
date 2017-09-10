@@ -3,6 +3,8 @@ var app = express();
 var router = express.Router();
 var pg = require('pg');
 
+console.log(process.env.DATABASE_URL);
+
 var config = require(__dirname + '/config.js');
 
 app.use(express.static(__dirname + '/public'));
@@ -20,13 +22,6 @@ router.use(function (req,res,next) {
 router.get("/", function(req, res){
     console.log("test");
     res.render("404");
-});
-
-
-pg.defaults.ssl = true;
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-    if (err){console.log("OOPS!!!"); throw err;}
-    console.log('Connected to postgres! Getting schemas...');
 });
 
 app.use("/",router);
