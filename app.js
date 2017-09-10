@@ -63,6 +63,10 @@ Article.sync({force: true}).then(() => {
     });
 });
 
+Article.findAll().then(data => {
+    console.log(data)
+});
+
 // router.get("/", async (req,res, next) => {
 //     try {
 //         const cursor = await r.table('articles')
