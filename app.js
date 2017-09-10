@@ -28,7 +28,7 @@ sequelize
     });
 
 const Article = sequelize.define('article', {
-    Author: {
+    author: {
         type: Sequelize.STRING
     },
     id: {
@@ -49,6 +49,18 @@ const Article = sequelize.define('article', {
 router.use(function (req,res,next) {
     console.log("/" + req.method);
     next();
+});
+
+// force: true will drop the table if it already exists
+Article.sync({force: true}).then(() => {
+    // Table created
+    return Article.create({
+        author: "Arthur Dent",
+        id: "001",
+        title: "Profound News",
+        blurb: "This is a test article... woah",
+        content: "This is the body of the article. What a wonderful piece of journalism!"
+    });
 });
 
 // router.get("/", async (req,res, next) => {
