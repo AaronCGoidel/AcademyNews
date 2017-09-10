@@ -60,6 +60,16 @@ Article.findAll({
     console.log(data)
 });
 
+router.get("/", function (req, res) {
+    Article.findAll({
+        where: {
+            id: {
+                $or: [{id: "001"}, {id:"002"}]
+            }
+        }
+    }).then(featuredPosts => res.render("index", {featuredPosts}))
+});
+
 // router.get("/", async (req,res, next) => {
 //     try {
 //         const cursor = await r.table('articles')
