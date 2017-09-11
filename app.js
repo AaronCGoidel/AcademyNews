@@ -60,6 +60,8 @@ Article.findAll({
     }
 }).then(data => {
     console.log(data)
+}).catch(function () {
+    console.log("Promise Rejected");
 });
 
 // router.get("/", function (req, res) {
