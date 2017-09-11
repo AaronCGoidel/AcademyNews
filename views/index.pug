@@ -41,7 +41,8 @@ html(lang='tr')
                                 a(href='javascript:;')
                                     i.fa.fa-youtube.fa-lg(aria-hidden='true')
         main
-            .container
+        - console.dir(posts)
+        .container
                 section.featured-content
                     .featured-container
                         .row
@@ -72,11 +73,11 @@ html(lang='tr')
                                         .row.no-gutters
                                                 .card-block
                                                     .card-caption
-                                                        h4.card-title=featuredPosts[2].title
-                                                        p.card-text=featuredPosts[2].blurb
+                                                        h4.card-title=featuredPosts[1].title
+                                                        p.card-text=featuredPosts[1].blurb
                                                     p.card-text.text-right
                                                         small By:&nbsp
-                                                        small=featuredPosts[2].author
+                                                        small=featuredPosts[1].author
                 .row
                     .col-8.mb-3
                         .card.split.mb-2
