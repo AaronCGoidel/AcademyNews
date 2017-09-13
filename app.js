@@ -51,26 +51,13 @@ router.use(function (req,res,next) {
     next();
 });
 
-
-Article.findAll({
-    where: {
-        id:["001", "002"]
-    }
-}).then(data => {
-    console.log(data)
-}).catch(function () {
-    console.log("Promise Rejected");
+router.get("/", function (req, res) {
+    Article.findAll({
+        where: {
+            id:["001", "002"]
+        }
+    }).then(featuredPosts => res.render("index", {featuredPosts}))
 });
-
-// router.get("/", function (req, res) {
-//     Article.findAll({
-//         where: {
-//             id: {
-//                 $or: [{id: "001"}, {id:"002"}]
-//             }
-//         }
-//     }).then(featuredPosts => res.render("index", {featuredPosts}))
-// });
 
 // router.get("/", async (req,res, next) => {
 //     try {
