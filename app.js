@@ -54,7 +54,7 @@ router.use(function (req,res,next) {
 
 Article.findAll({
     where: {
-        id: "002"
+        id:["001", "002"]
     }
 }).then(data => {
     console.log(data)
