@@ -54,9 +54,7 @@ router.use(function (req,res,next) {
 
 Article.findAll({
     where: {
-        id: {
-            $or: [{id: "001"}, {id:"002"}]
-        }
+        id: "002"
     }
 }).then(data => {
     console.log(data)
