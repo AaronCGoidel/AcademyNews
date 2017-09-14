@@ -66,7 +66,8 @@ router.get("/", function (req, res) {
         order: [Article, 'createdAt', 'DESC'],
         limit: 5
     }).then(posts => data['articles'] = posts);
-    res.render("index", {data})
+    //res.render("index", {data})
+    console.log(data);
 });
 
 // router.get("/", async (req,res, next) => {
