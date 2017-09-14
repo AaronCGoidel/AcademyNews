@@ -65,20 +65,20 @@ html(lang='tr')
                                                 .card-block
                                                     .card-caption
                                                         h4.card-title=featuredPosts[1].title
-                                                        p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt felis dapibus tortor dictum commodo. Suspendisse eu elit ut ante bibendum cursus non a risus. Proin pulvinar ligula in varius tempus. Cras imperdiet, nisl id rhoncus luctus, augue eros interdum leo, at lobortis ante arcu vitae nisl. Praesent nec sagittis augue. Morbi volutpat ante eu nisl pharetra aliquam. Etiam efficitur tellus eget purus pharetra, non cursus eros placerat. Curabitur scelerisque in nisl ac eleifend. Nunc non scelerisque nunc, ultricies laoreet odio. Ut vehicula varius lacus eget semper. Vestibulum sem ligula, posuere eu orci et, ornare rhoncus enim. Donec bibendum dignissim sapien, vitae porttitor nunc varius non. Nunc interdum suscipit libero, vitae viverra magna. Praesent porta luctus vehicula. Proin suscipit, nulla vel luctus vehicula, tortor lacus vulputate ante, in porttitor metus eros at sapien.
-                                                    p.card-text.text-right
-                                                        small By:&nbsp
-                                                        small=featuredPosts[1].author
-                                .card.split
-                                    a.card-link(href='/article/' + featuredPosts[1].id)
-                                        .row.no-gutters
-                                                .card-block
-                                                    .card-caption
-                                                        h4.card-title=featuredPosts[1].title
                                                         p.card-text=featuredPosts[1].blurb
                                                     p.card-text.text-right
                                                         small By:&nbsp
                                                         small=featuredPosts[1].author
+                                .card.split
+                                    a.card-link(href='/article/' + featuredPosts[2].id)
+                                        .row.no-gutters
+                                                .card-block
+                                                    .card-caption
+                                                        h4.card-title=featuredPosts[2].title
+                                                        p.card-text=featuredPosts[2].blurb
+                                                    p.card-text.text-right
+                                                        small By:&nbsp
+                                                        small=featuredPosts[2].author
                 .row
                     .col-8.mb-3
                         .card.split.mb-2
