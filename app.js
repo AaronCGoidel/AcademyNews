@@ -51,13 +51,47 @@ router.use(function (req,res,next) {
     next();
 });
 
-router.get("/", function (req, res) {
-    Article.findAll({
-        where: {
-            id:["001", "002"]
-        }
-    }).then(featuredPosts => res.render("index", {featuredPosts}))
+Article.create({
+    author: "Jeff Bezos",
+    id: "003",
+    title: "Breaking News",
+    blurb: "Super important information",
+    content: "OMG! This story is dope"
 });
+
+Article.create({
+    author: "Matt Damon",
+    id: "004",
+    title: "Mars",
+    blurb: "A survival guide",
+    content: "This is the story of how I planted potatoes on Mars. It was so good that it got turned into a major motion picture."
+});
+
+Article.create({
+    author: "Sterling Archer",
+    id: "005",
+    title: "I'm The World's Greatest Spy",
+    blurb: "Lana... Lana... LANA!!!",
+    content: "My name is Sterling Archer and I must find my valet, Woodhouse."
+});
+
+
+// var data = {};
+// router.get("/", function (req, res) {
+//     Article.findAll({
+//         where: {
+//             id: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]
+//         }
+//     }).then(featured => data['featuredPosts'] = featured);
+//     Article.findAll({
+//         where: {
+//             id: {$notIn: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]}
+//         },
+//         order: [Article, 'createdAt', 'DESC'],
+//         limit: 5
+//     }).then(posts => data['articles'] = posts);
+//     res.render("index", {data})
+// });
 
 // router.get("/", async (req,res, next) => {
 //     try {
