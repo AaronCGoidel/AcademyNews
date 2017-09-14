@@ -52,22 +52,8 @@ router.use(function (req,res,next) {
 });
 
 
-var data = {};
 router.get("/", function (req, res) {
-    Article.findAll({
-        where: {
-            id: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]
-        }
-    }).then(featured => data['featuredPosts'] = featured);
-    Article.findAll({
-        where: {
-            id: {$notIn: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]}
-        },
-        order: [Article, 'createdAt', 'DESC'],
-        limit: 5
-    }).then(posts => data['articles'] = posts);
-    //res.render("index", {data})
-    console.log("[DATA]"+data);
+    Article.findAll().then(featured => console.log("[DATA]" + featured));
 });
 
 // router.get("/", async (req,res, next) => {
