@@ -53,7 +53,7 @@ router.use(function (req,res,next) {
 
 
 router.get("/", function (req, res) {
-    Article.findAll().then(featured => console.log(featured[0]));
+    Article.findAll().then(featuredPosts => res.render("index", {featuredPosts}));
 });
 
 // router.get("/", async (req,res, next) => {
