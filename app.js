@@ -53,7 +53,7 @@ router.use(function (req,res,next) {
 
 
 router.get("/", function (req, res) {
-    Article.findAll().then(featured => console.log("[DATA]" + featured));
+    Article.findAll().then(featured => console.log(featured[0]));
 });
 
 // router.get("/", async (req,res, next) => {
