@@ -77,17 +77,14 @@ router.get("/article/test", function(req, res){
     res.render("articleTest");
 });
 
-// router.get("/article/*", function(req, res) {
-//     var getID = /[^/]*$/.exec(req.path)[0];
-//     r.table('articles').filter(r.row('id').eq(getID)).run(connection, function(err, cursor) {
-//         if (err) throw err;
-//         cursor.toArray(function(err, result) {
-//             if (err) throw err;
-//             console.log(result);
-//             res.render("article", {result})
-//         });
-//     });
-// });
+router.get("/article/*", function(req, res) {
+    var getID = /[^/]*$/.exec(req.path)[0];
+    Article.findOne({
+        where: {
+            id: getID
+        }
+    }).then(currentArticle => res.render("article", {currentArticle}))
+});
 
 router.get("/upload", function(req, res) {
     res.render("upload")

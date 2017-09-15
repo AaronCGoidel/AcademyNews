@@ -49,7 +49,7 @@ html(lang='tr')
                             .col-4.mb-3
                                 .card.card-inverse
                                     a.card-link(href='/article/' + featuredPosts[0].id)
-                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
+                                        img.card-img(src=featuredPosts[0].imageURL, alt='Card image')
                                         .card-img-overlay
                                             .card-block
                                                 h4.card-title=featuredPosts[0].title
