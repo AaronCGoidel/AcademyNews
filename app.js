@@ -86,8 +86,8 @@ router.get("/article/*", function(req, res) {
     }).then(currentArticle => res.render("article", {currentArticle}))
 });
 
-router.get("/upload", function(req, res) {
-    res.render("upload")
+router.get("/coming_soon", function(req, res) {
+    res.render("comingSoon")
 });
 
 app.use("/",router);

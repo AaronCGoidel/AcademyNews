@@ -19,8 +19,8 @@ html(lang='tr')
                     i.fa.fa-times
                 span.nav-item.title MENU
                 a.nav-item(href='/') Home
-                a.nav-item(href='#') Sports
-                a.nav-item(href='#') About
+                a.nav-item(href='/coming_soon') Sports
+                a.nav-item(href='/coming_soon') About
             nav.navbar
                 .container
                     .row.align-items-center
@@ -28,7 +28,7 @@ html(lang='tr')
                             a.navbar-brand(href='javascript:;', onclick='openNav()')
                                 i.fa.fa-bars.fa-lg(aria-hidden='true')
                         .col.text-center
-                            a.navbar-brand(href='#')
+                            a.navbar-brand(href='/')
                                 img(src='../assets/logo.png', height='100')
                         .col.text-right
                             .social-menu
@@ -46,8 +46,8 @@ html(lang='tr')
                 section.featured-content
                     .featured-container
                         .row
-                            .col-4.mb-3
-                                .card.card-inverse
+                            .col-4.mb-4
+                                .card.card-inverse.left
                                     a.card-link(href='/article/' + featuredPosts[0].id)
                                         img.card-img(src='http://placehold.it/370x430', alt='Card image')
                                         .card-img-overlay
@@ -57,27 +57,29 @@ html(lang='tr')
                                                 p.card-text
                                                     small By:&nbsp
                                                     small=featuredPosts[0].author
-                            .col-8.mb-3
-                                .card.split.mb-2
+
+                            .col-4
+                                .card.card-inverse
                                     a.card-link(href='/article/' + featuredPosts[1].id)
-                                        .row.no-gutters
-                                                .card-block
-                                                    .card-caption
-                                                        h4.card-title=featuredPosts[1].title
-                                                        p.card-text=featuredPosts[1].blurb
-                                                    p.card-text.text-right
-                                                        small By:&nbsp
-                                                        small=featuredPosts[1].author
-                                .card.split
+                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
+                                        .card-img-overlay
+                                            .card-block
+                                                h4.card-title=featuredPosts[1].title
+                                                p.card-text=featuredPosts[1].blurb
+                                                p.card-text
+                                                    small By:&nbsp
+                                                    small=featuredPosts[1].author
+                            .col-4
+                                .card.card-inverse
                                     a.card-link(href='/article/' + featuredPosts[2].id)
-                                        .row.no-gutters
-                                                .card-block
-                                                    .card-caption
-                                                        h4.card-title=featuredPosts[2].title
-                                                        p.card-text=featuredPosts[2].blurb
-                                                    p.card-text.text-right
-                                                        small By:&nbsp
-                                                        small=featuredPosts[2].author
+                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
+                                        .card-img-overlay
+                                            .card-block
+                                                h4.card-title=featuredPosts[2].title
+                                                p.card-text=featuredPosts[2].blurb
+                                                p.card-text
+                                                    small By:&nbsp
+                                                    small=featuredPosts[2].author
                 for post in articles
                     .row
                         .col-8.mb-3

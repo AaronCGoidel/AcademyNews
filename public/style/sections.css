@@ -5,11 +5,12 @@ section.featured-content .title {
 
 section.featured-content .featured-container {
     background: #072e51;
-    padding-top: 20px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
     box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.26);
-
 
 }
 
