@@ -17,7 +17,7 @@ var PORT = process.env.PORT || config.express.port;
 
 app.set("view engine", "pug");
 
-const sequelize = new Sequelize(config.data.URL);
+const sequelize = new Sequelize(process.env.DATABASE_URL || config.data.URL);
 
 sequelize
     .authenticate()
