@@ -41,8 +41,7 @@ html(lang='tr')
                                 a(href='javascript:;')
                                     i.fa.fa-youtube.fa-lg(aria-hidden='true')
         main
-        - console.dir("[FEATURED POSTS]" + posts)
-        - console.log("[REACHED]Index loading")
+        // - console.dir("[FEATURED POSTS]")
         .container
                 section.featured-content
                     .featured-container
@@ -79,42 +78,20 @@ html(lang='tr')
                                                     p.card-text.text-right
                                                         small By:&nbsp
                                                         small=featuredPosts[2].author
-                .row
-                    .col-8.mb-3
-                        .card.split.mb-2
-                            .card-small
-                                a.card-link(href='/article/test')
-                                    .row.no-gutters
-                                        .card-block
-                                            .card-caption
-                                                h4.card-title blah
-                                                p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt felis dapibus tortor dictum commodo. Suspendisse eu elit ut ante bibendum cursus non a risus.
-                                            p.card-text.text-right
-                                                small By: blah
-                    .col-8.mb-3
-                        .card.split.mb-2
-                            .card-small
-                                a.card-link(href='/article/002')
-                                    .row.no-gutters
-                                        .card-block
-                                            .card-caption
-                                                h4.card-title=featuredPosts[1].title
-                                                p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt felis dapibus tortor dictum commodo. Suspendisse eu elit ut ante bibendum cursus non a risus.
-                                            p.card-text.text-right
-                                                small By:&nbsp
-                                                small=featuredPosts[1].author
-                    .col-8.mb-3
-                        .card.split.mb-2
-                            .card-small
-                                a.card-link(href='/article/002')
-                                    .row.no-gutters
-                                        .card-block
-                                            .card-caption
-                                                h4.card-title=featuredPosts[1].title
-                                                p.card-text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt felis dapibus tortor dictum commodo. Suspendisse eu elit ut ante bibendum cursus non a risus.
-                                            p.card-text.text-right
-                                                small By:&nbsp
-                                                small=featuredPosts[1].author
+                for post in articles
+                    .row
+                        .col-8.mb-3
+                            .card.split.mb-2
+                                .card-small
+                                    a.card-link(href='/article/' + post.id)
+                                        .row.no-gutters
+                                            .card-block
+                                                .card-caption
+                                                    h4.card-title=post.title
+                                                    p.card-text=post.blurb
+                                                p.card-text.text-right
+                                                    small By:&nbsp
+                                                    small=post.author
 
         footer
             nav.navbar

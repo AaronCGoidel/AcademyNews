@@ -2,8 +2,9 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var Sequelize = require("sequelize");
+var pg = require('pg');
 
-console.log("USED")
+pg.defaults.ssl = true;
 
 var config = require(__dirname + '/config.js');
 
@@ -16,7 +17,7 @@ var PORT = process.env.PORT || config.express.port;
 
 app.set("view engine", "pug");
 
-const sequelize = new Sequelize(process.env.DATABASE_URL || config.data.URL);
+const sequelize = new Sequelize(config.data.URL);
 
 sequelize
     .authenticate()
@@ -51,24 +52,26 @@ router.use(function (req,res,next) {
     next();
 });
 
+router.get("/", async function (req, res) {
 
-router.get("/", function (req, res) {
-    Article.findAll().then(featuredPosts => res.render("index", {featuredPosts}));
+    const featuredQuery = Article.findAll({
+        where: {
+            id: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]
+        }
+    });
+
+    const articlesQuery = Article.findAll({
+        where: {
+            id: {$notIn: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]}
+        }
+    });
+
+    const featuredPosts = await featuredQuery;
+    const articles = await articlesQuery;
+
+    res.render("index", {featuredPosts, articles});
 });
 
-// router.get("/", async (req,res, next) => {
-//     try {
-//         const cursor = await r.table('articles')
-//             .filter(r.row('id').eq(config.featured.article1ID)
-//                 .or(r.row('id').eq(config.featured.article2ID))
-//                 .or(r.row('id').eq(config.featured.article3ID)))
-//             .run(connection);
-//         const featuredPosts = await cursor.toArray();
-//         res.render("index", {featuredPosts})
-//     }catch(err){
-//         next(err);
-//     }
-// });
 
 router.get("/article/test", function(req, res){
     res.render("articleTest");
