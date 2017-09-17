@@ -51,14 +51,13 @@ html(lang='tr')
                                 .col-4.mb-4
                                     .card.card-inverse.left
                                         a.card-link(href='/article/' + featured.id)
-                                            img.card-img(src=featured.imageURL, alt='http://placehold.it/370x430')
-                                            .card-img-overlay
-                                                .card-block
-                                                    h4.card-title=featured.title
-                                                    p.card-text=featured.blurb
-                                                    p.card-text
-                                                        small By:&nbsp
-                                                        small=featured.author
+                                            img.card-img(src=featured.imageURL)
+                                            .card-block
+                                                h4.card-title=featured.title
+                                                p.card-text=featured.blurb
+                                                p.card-text
+                                                    small By:&nbsp
+                                                    small=featured.author
                 for post in articles
                     .row
                         .col-8.mb-3
