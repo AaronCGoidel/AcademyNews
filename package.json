@@ -1,6 +1,6 @@
 {
   "name": "academy-news",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "description": "The website for the MKA newspaper",
   "main": "app.js",
   "scripts": {

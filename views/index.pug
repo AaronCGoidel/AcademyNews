@@ -41,45 +41,24 @@ html(lang='tr')
                                 a(href='javascript:;')
                                     i.fa.fa-youtube.fa-lg(aria-hidden='true')
         main
-        // - console.dir("[FEATURED POSTS]")
+        - console.dir("[FEATURED POSTS]" + featuredPosts[1])
         .container
+
                 section.featured-content
                     .featured-container
                         .row
-                            .col-4.mb-4
-                                .card.card-inverse.left
-                                    a.card-link(href='/article/' + featuredPosts[0].id)
-                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
-                                        .card-img-overlay
-                                            .card-block
-                                                h4.card-title=featuredPosts[0].title
-                                                p.card-text=featuredPosts[0].blurb
-                                                p.card-text
-                                                    small By:&nbsp
-                                                    small=featuredPosts[0].author
-
-                            .col-4
-                                .card.card-inverse
-                                    a.card-link(href='/article/' + featuredPosts[1].id)
-                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
-                                        .card-img-overlay
-                                            .card-block
-                                                h4.card-title=featuredPosts[1].title
-                                                p.card-text=featuredPosts[1].blurb
-                                                p.card-text
-                                                    small By:&nbsp
-                                                    small=featuredPosts[1].author
-                            .col-4
-                                .card.card-inverse
-                                    a.card-link(href='/article/' + featuredPosts[2].id)
-                                        img.card-img(src='http://placehold.it/370x430', alt='Card image')
-                                        .card-img-overlay
-                                            .card-block
-                                                h4.card-title=featuredPosts[2].title
-                                                p.card-text=featuredPosts[2].blurb
-                                                p.card-text
-                                                    small By:&nbsp
-                                                    small=featuredPosts[2].author
+                            for featured in featuredPosts
+                                .col-4.mb-4
+                                    .card.card-inverse.left
+                                        a.card-link(href='/article/' + featured.id)
+                                            img.card-img(src=featured.imageURL, alt='http://placehold.it/370x430')
+                                            .card-img-overlay
+                                                .card-block
+                                                    h4.card-title=featured.title
+                                                    p.card-text=featured.blurb
+                                                    p.card-text
+                                                        small By:&nbsp
+                                                        small=featured.author
                 for post in articles
                     .row
                         .col-8.mb-3

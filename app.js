@@ -40,9 +40,18 @@ const Article = sequelize.define('article', {
         type: Sequelize.STRING
     },
     blurb: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
     },
     content: {
+        type: Sequelize.ARRAY(Sequelize.TEXT)
+    },
+    imageURL: {
+        type: Sequelize.STRING
+    },
+    photoCred: {
+        type: Sequelize.STRING
+    },
+    publishDate: {
         type: Sequelize.STRING
     }
 });
