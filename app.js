@@ -4,7 +4,10 @@ var router = express.Router();
 var pg = require('pg');
 var bodyParser = require('body-parser');
 var md = require('marked');
+var cookieParser = require('cookie-parser');
 const db = require('./models');
+
+const AUTH_TOKEN = "goodsecurity";
 
 pg.defaults.ssl = true;
 
@@ -68,14 +71,30 @@ router.get("/coming_soon", function(req, res) {
     res.render("comingSoon")
 });
 
-router.get("/willisnotgonnaguessthis/upload", function(req, res) {
+router.use(bodyParser.urlencoded({extended:false}));
+router.use(cookieParser());
+
+function authMiddleware(req, res, next){
+    if(req.cookies.token === AUTH_TOKEN) {
+        next();
+    } else {res.status(401).send("not authenticated").end();}
+}
+
+router.get("/upload", authMiddleware, function(req, res) {
     res.render("upload")
 });
 
-router.post("/willisnotgonnaguessthis/submit-article", bodyParser.urlencoded({extended:false}), function(req, res) {
+router.post("/upload", authMiddleware, function(req, res) {
     const {author, id, title, blurb, content, imageURL, photoCred, publishDate} = req.body;
     db.Article.create({author, id, title, blurb, content, imageURL, photoCred, publishDate});
     res.redirect(`/article/${id}`);
+});
+
+router.get("/auth/:token", function(req, res){
+    if(req.params.token === AUTH_TOKEN){
+        res.cookie("token", AUTH_TOKEN);
+        res.redirect("/upload")
+    } else {res.status(401).send("not authenticated").end();}
 });
 
 router.get("/test", function(req, res) {
