@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.TEXT
         },
         content: {
-            type: DataTypes.ARRAY(DataTypes.TEXT)
+            type: DataTypes.TEXT
         },
         imageURL: {
             type: DataTypes.STRING

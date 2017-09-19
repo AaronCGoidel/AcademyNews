@@ -42,6 +42,7 @@ html(lang='en')
                                 a(href='javascript:;')
                                     i.fa.fa-youtube.fa-lg(aria-hidden='true')
         article.article
+            //pre=JSON.stringify(currentArticle, null, 3)
             header.header
                 .category
                 h1.headline=currentArticle.title
@@ -55,8 +56,7 @@ html(lang='en')
                 figcaption
                     strong Photo Credit:&nbsp
                     strong=currentArticle.photoCred
-            for par in currentArticle.content
-                p=par
+                main!=md(currentArticle.content)
 
 
         script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')

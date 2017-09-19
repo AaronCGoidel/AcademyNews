@@ -3,6 +3,7 @@ var app = express();
 var router = express.Router();
 var pg = require('pg');
 var bodyParser = require('body-parser');
+var md = require('marked');
 const db = require('./models');
 
 pg.defaults.ssl = true;
@@ -60,7 +61,7 @@ router.get("/article/*", function(req, res) {
         where: {
             id: getID
         }
-    }).then(currentArticle => res.render("article", {currentArticle}))
+    }).then(currentArticle => res.render("article", {md, currentArticle}))
 });
 
 router.get("/coming_soon", function(req, res) {
@@ -72,8 +73,13 @@ router.get("/upload", function(req, res) {
 });
 
 router.post("/submit-article", bodyParser.urlencoded({extended:false}), function(req, res) {
-    const {author, id, title, blurb, body, imageURL, photoCred, publishDate} = req.body;
-    db.Article.create({author, id, title, blurb, body, imageURL, photoCred, publishDate});
+    const {author, id, title, blurb, content, imageURL, photoCred, publishDate} = req.body;
+    db.Article.create({author, id, title, blurb, content, imageURL, photoCred, publishDate});
+    res.redirect(`/article/${id}`);
+});
+
+router.get("/test", function(req, res) {
+   res.render("articleTest")
 });
 
 app.use("/",router);
