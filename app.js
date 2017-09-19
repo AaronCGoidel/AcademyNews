@@ -85,7 +85,7 @@ router.get("/test", function(req, res) {
 app.use("/",router);
 
 app.use("*",function(req,res){
-    res.render("404");
+    res.status(404).render("404");
 });
 
 app.listen(PORT,function(){
