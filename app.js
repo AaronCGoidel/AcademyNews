@@ -1,14 +1,12 @@
 var express = require("express");
 var app = express();
 var router = express.Router();
-var Sequelize = require("sequelize");
 var pg = require('pg');
+db = require('./models');
 
 pg.defaults.ssl = true;
 
 var config = require(__dirname + '/config.js');
-
-var connection = null;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -17,9 +15,7 @@ var PORT = process.env.PORT || config.express.port;
 
 app.set("view engine", "pug");
 
-const sequelize = new Sequelize(process.env.DATABASE_URL || config.data.URL);
-
-sequelize
+db.sequelize
     .authenticate()
     .then(() => {
         console.log('[DATABASE]Connection has been established successfully.');
@@ -28,34 +24,6 @@ sequelize
         console.error('[DATABASE]Unable to connect to the database:', err);
     });
 
-const Article = sequelize.define('article', {
-    author: {
-        type: Sequelize.STRING
-    },
-    id: {
-        type: Sequelize.STRING,
-        primaryKey: true
-    },
-    title: {
-        type: Sequelize.STRING
-    },
-    blurb: {
-        type: Sequelize.TEXT
-    },
-    content: {
-        type: Sequelize.ARRAY(Sequelize.TEXT)
-    },
-    imageURL: {
-        type: Sequelize.STRING
-    },
-    photoCred: {
-        type: Sequelize.STRING
-    },
-    publishDate: {
-        type: Sequelize.STRING
-    }
-});
-
 router.use(function (req,res,next) {
     console.log("/" + req.method);
     next();
@@ -63,13 +31,13 @@ router.use(function (req,res,next) {
 
 router.get("/", async function (req, res) {
 
-    const featuredQuery = Article.findAll({
+    const featuredQuery = db.Article.findAll({
         where: {
             id: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]
         }
     });
 
-    const articlesQuery = Article.findAll({
+    const articlesQuery = db.Article.findAll({
         where: {
             id: {$notIn: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]}
         }
@@ -81,14 +49,13 @@ router.get("/", async function (req, res) {
     res.render("index", {featuredPosts, articles});
 });
 
-
 router.get("/article/test", function(req, res){
     res.render("articleTest");
 });
 
 router.get("/article/*", function(req, res) {
     var getID = /[^/]*$/.exec(req.path)[0];
-    Article.findOne({
+    db.Article.findOne({
         where: {
             id: getID
         }
