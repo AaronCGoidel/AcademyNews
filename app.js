@@ -68,11 +68,11 @@ router.get("/coming_soon", function(req, res) {
     res.render("comingSoon")
 });
 
-router.get("/upload", function(req, res) {
+router.get("/willisnotgonnaguessthis/upload", function(req, res) {
     res.render("upload")
 });
 
-router.post("/submit-article", bodyParser.urlencoded({extended:false}), function(req, res) {
+router.post("/willisnotgonnaguessthis/submit-article", bodyParser.urlencoded({extended:false}), function(req, res) {
     const {author, id, title, blurb, content, imageURL, photoCred, publishDate} = req.body;
     db.Article.create({author, id, title, blurb, content, imageURL, photoCred, publishDate});
     res.redirect(`/article/${id}`);
