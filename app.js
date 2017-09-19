@@ -2,7 +2,8 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var pg = require('pg');
-db = require('./models');
+var bodyParser = require('body-parser');
+const db = require('./models');
 
 pg.defaults.ssl = true;
 
@@ -64,6 +65,15 @@ router.get("/article/*", function(req, res) {
 
 router.get("/coming_soon", function(req, res) {
     res.render("comingSoon")
+});
+
+router.get("/upload", function(req, res) {
+    res.render("upload")
+});
+
+router.post("/submit-article", bodyParser.urlencoded({extended:false}), function(req, res) {
+    const {author, id, title, blurb, body, imageURL, photoCred, publishDate} = req.body;
+    db.Article.create({author, id, title, blurb, body, imageURL, photoCred, publishDate});
 });
 
 app.use("/",router);

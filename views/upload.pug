@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+    body
+        form(action="/submit-article" method="POST").form-horizontal
+            fieldset
+                legend Submit Article
+                .form-group
+                    label.col-md-4.control-label(for='author') Author
+                    .col-md-4
+                        input#author.form-control.input-md(name='author', type='text', placeholder='name of author')
+                .form-group
+                    label.col-md-4.control-label(for='id') ID
+                    .col-md-4
+                        input#id.form-control.input-md(name='id', type='text', placeholder='id')
+                .form-group
+                    label.col-md-4.control-label(for='title') Title
+                    .col-md-4
+                        input#title.form-control.input-md(name='title', type='text', placeholder='title')
+                .form-group
+                    label.col-md-4.control-label(for='blurb') Blurb
+                    .col-md-8
+                        input#blurb.form-control.input-md(name='blurb', type='text', placeholder='small summary')
+                .form-group
+                    label.col-md-4.control-label(for='content') Text
+                    .col-md-4
+                        textarea#content.form-control(name='content')
+                .form-group
+                    label.col-md-4.control-label(for='url') Image
+                    .col-md-8
+                        input#url.form-control.input-md(name='url', type='text', placeholder='url of image')
+                .form-group
+                    label.col-md-4.control-label(for='cred') Photo Cred
+                    .col-md-4
+                        input#cred.form-control.input-md(name='cred', type='text', placeholder='photo credit')
+                .form-group
+                    label.col-md-4.control-label(for='date') Date
+                    .col-md-4
+                        input#date.form-control.input-md(name='date', type='text', placeholder='date')
+            button.input_submit(type='submit') Submit
