@@ -54,8 +54,8 @@ router.get("/", async function (req, res) {
     res.render("index", {featuredPosts, articles});
 });
 
-router.get("/article/test", function(req, res){
-    res.render("articleTest");
+router.get("/test", function(req, res){
+    res.render("responsiveIndex");
 });
 
 router.get("/article/*", function(req, res) {
