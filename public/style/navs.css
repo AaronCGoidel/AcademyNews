@@ -1,15 +1,3 @@
-@media (min-device-width:320px) {
-    img[data-src-960px] {
-        content: attr(data-src-960px, url);
-    }
-}
-
-@media (min-device-width:960px) {
-    img[data-src-1260px] {
-        content: attr(data-src-1260px, url);
-    }
-}
-
 .sticky {
     position: fixed;
     width: 100%;

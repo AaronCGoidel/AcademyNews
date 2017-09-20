@@ -12,8 +12,10 @@ html(lang='tr')
         link(rel='stylesheet', href='../style/sections.css')
         link(rel='stylesheet', href='../style/responsive.css')
     body
+        // make sure nav menu is closed on page load
         .sidenav-overlay(onclick='closeNav()')
         header
+            // nav menu links
             #sidenav.sidenav
                 a.closebtn(href='javascript:;', onclick='closeNav()')
                     i.fa.fa-times
@@ -22,6 +24,7 @@ html(lang='tr')
                 a.nav-item(href='/coming_soon') Sports
                 a.nav-item(href='/coming_soon') About
             nav.navbar
+                // nav bar
                 .container
                     .row.align-items-center
                         .col
@@ -46,6 +49,7 @@ html(lang='tr')
                 section.featured-content
                     .featured-container
                         .row
+                            // display featured
                             for featured in featuredPosts
                                 .col-4.mb-4
                                     .card.card-inverse.left
@@ -57,6 +61,7 @@ html(lang='tr')
                                                 p.card-text
                                                     small By:&nbsp
                                                     small=featured.author
+                // display all articles
                 for post in articles
                     .row
                         .col-8.mb-3
