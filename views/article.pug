@@ -3,7 +3,9 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+
         title The Academy News | MKA's Student Run Newspaper
+
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
         link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
         link(rel='stylesheet', href='../style/index.css')
@@ -13,8 +15,10 @@ html(lang='en')
         link(rel='stylesheet', href='../style/responsive.css')
         link(rel='stylesheet', href='../style/article.css')
     body
+        // make sure nav menu is closed on page load
         .sidenav-overlay(onclick='closeNav()')
         header
+            // nav menu links
             #sidenav.sidenav
                 a.closebtn(href='javascript:;', onclick='closeNav()')
                     i.fa.fa-times
@@ -23,6 +27,7 @@ html(lang='en')
                 a.nav-item(href='/coming_soon') Sports
                 a.nav-item(href='/coming_soon') About
             nav.navbar
+                // nav bar
                 .container
                     .row.align-items-center
                         .col
@@ -31,7 +36,6 @@ html(lang='en')
                         .col.text-center
                             a.navbar-brand(href='/')
                                 img(src='../assets/logo.png', data-src-960px='', data-src-1260px='', alt='', height='100')
-
                         .col.text-right
                             .social-menu
                                 a(href='javascript:;')
@@ -53,10 +57,19 @@ html(lang='en')
                         span.author-name=currentArticle.author
                     span.pub-date=currentArticle.publishDate
             figure
-                img(src=currentArticle.imageURL)
+                img(src=currentArticle.imageURL, width="100%")
                 figcaption
-                    strong Photo Credit:&nbsp
-                    strong=currentArticle.photoCred
-                main!=md(currentArticle.content)
+                strong Photo Credit:&nbsp
+                strong=currentArticle.photoCred
+            main!=md(currentArticle.content)
+
+        footer
+            nav.navbar
+                .container
+                    .row
+                        .col
+                            span.navbar-text Created by Aaron Goidel
+                        .col.text-right
+                            span.navbar-text 2017 Montclair Kimberley Academy. All rights reserved.
 
         script(src='../scripts/nav.js')
