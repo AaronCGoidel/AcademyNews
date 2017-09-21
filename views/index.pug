@@ -11,6 +11,7 @@ html(lang='tr')
         link(rel='stylesheet', href='../style/cards.css')
         link(rel='stylesheet', href='../style/sections.css')
         link(rel='stylesheet', href='../style/responsive.css')
+
     body
         // make sure nav menu is closed on page load
         .sidenav-overlay(onclick='closeNav()')
@@ -51,7 +52,7 @@ html(lang='tr')
                         .row
                             // display featured
                             for featured in featuredPosts
-                                .col-4.mb-4
+                                .col-main-4.mb-4
                                     .card.card-inverse.left
                                         a.card-link(href='/article/' + featured.id)
                                             img.card-img(src=featured.imageURL)
@@ -64,7 +65,7 @@ html(lang='tr')
                 // display all articles
                 for post in articles
                     .row
-                        .col-8.mb-3
+                        .col-main-8.mb-3
                             .card.split.mb-2
                                 .card-small
                                     a.card-link(href='/article/' + post.id)
