@@ -24,6 +24,9 @@ module.exports = function(sequelize, DataTypes){
         },
         publishDate: {
             type: DataTypes.STRING
+        },
+        tags: {
+            type: DataTypes.ARRAY(DataTypes.STRING)
         }
     });
     return Article;

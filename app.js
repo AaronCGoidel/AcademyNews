@@ -36,6 +36,9 @@ router.use(function (req,res,next) {
     next();
 });
 
+router.use(bodyParser.urlencoded({extended:false}));
+router.use(cookieParser());
+
 // homepage
 router.get("/", async function (req, res) {
 
@@ -46,11 +49,13 @@ router.get("/", async function (req, res) {
         }
     });
 
-    // query for all other articles
+    // query for the latest 5, non featured articles
     const articlesQuery = db.Article.findAll({
+        limit: 5,
         where: {
             id: {$notIn: [config.featured.article1ID, config.featured.article2ID, config.featured.article3ID]}
-        }
+        },
+        order: [ [ 'createdAt', 'DESC' ]]
     });
 
     const featuredPosts = await featuredQuery;
@@ -73,13 +78,25 @@ router.get("/article/*", function(req, res) {
     }).then(currentArticle => res.render("article", {md, currentArticle}))
 });
 
+router.get("/category/:tag", function(req, res) {
+    if(req.params.tag === "all")
+    {
+        db.Article.findAll({
+            order: [ [ 'createdAt', 'DESC' ]]
+        }).then(posts => res.render("category", {posts}));
+    } else{
+        db.Article.findAll({
+            where: {
+                tags: {$contains:[req.params.tag]}
+            }
+        }).then(posts => res.render("category", {posts}));
+    }
+});
+
 // used for links that do not have an implemented destination
 router.get("/coming_soon", function(req, res) {
     res.render("comingSoon")
 });
-
-router.use(bodyParser.urlencoded({extended:false}));
-router.use(cookieParser());
 
 // middleware for authenticating admin
 function authMiddleware(req, res, next){
@@ -95,8 +112,9 @@ router.get("/upload", authMiddleware, function(req, res) {
 
 // post article with content from form
 router.post("/upload", authMiddleware, function(req, res) {
+    var tags = req.body.tag.split(",");
     const {author, id, title, blurb, content, imageURL, photoCred, publishDate} = req.body;
-    db.Article.create({author, id, title, blurb, content, imageURL, photoCred, publishDate});
+    db.Article.create({author, id, title, blurb, content, imageURL, photoCred, publishDate, tags});
     res.redirect(`/article/${id}`);
 });
 
@@ -114,6 +132,8 @@ app.use("/",router);
 app.use("*",function(req,res){
     res.status(404).render("404");
 });
+
+//db.sequelize.sync({force:true});
 
 app.listen(PORT,function(){
     console.log("Listening on Port " + PORT);

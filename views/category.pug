@@ -13,7 +13,7 @@ html(lang='en')
         link(rel='stylesheet', href='../style/cards.css')
         link(rel='stylesheet', href='../style/sections.css')
         link(rel='stylesheet', href='../style/responsive.css')
-
+        link(rel='stylesheet', href='../style/article.css')
     body
         // make sure nav menu is closed on page load
         .sidenav-overlay(onclick='closeNav()')
@@ -38,48 +38,25 @@ html(lang='en')
                             a.navbar-brand(href='/')
                                 img(src='../assets/logo.png', data-src-960px='', data-src-1260px='', alt='', height='100')
                         .col.text-right
-
         main
-        .container
-            section.featured-content
-                .featured-container
-                    .row
-                        // display featured
-                        for featured in featuredPosts
-                            .col-main-4.mb-4
-                                .card.card-inverse.left
-                                    .feat
-                                        a.card-link(href='/article/' + featured.id)
-                                            img.card-img(src=featured.imageURL)
-                                            .card-block
-                                                h4.card-title=featured.title
-                                                p.card-text=featured.blurb.slice(0, 80) + " ..."
-                                                p.card-text
-                                                    small By:&nbsp
-                                                    small=featured.author
-            .row
-                // display all articles
-                .col-main-8
-                    ul
-                    for post in articles
-                        li
-                            .card.split
-                                .card-small
-                                    a.card-link(href='/article/' + post.id)
-                                        .row.no-gutters
-                                            .card-block
-                                                .card-caption
-                                                    h4.card-title=post.title
-                                                    p.card-text=post.blurb
-                                                    p.card-text
-                                                        small By:&nbsp
-                                                        small=post.author
-                .col-main-4
-                    a.twitter-timeline(href='https://twitter.com/TwitterDev/timelines/539487832448843776' height="400") National Park Tweets - Curated tweets by TwitterDev
-                    script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
-
-
-
+            .container
+                .row
+                    // display all articles
+                    .col-main-12
+                        ul
+                        for post in posts
+                            li
+                                .card.split
+                                    .card-small
+                                        a.card-link(href='/article/' + post.id)
+                                            .row.no-gutters
+                                                .card-block
+                                                    .card-caption
+                                                        h4.card-title=post.title
+                                                        p.card-text=post.blurb
+                                                        p.card-text
+                                                            small By:&nbsp
+                                                            small=post.author
         footer
             nav.navbar
                 .container
@@ -90,4 +67,3 @@ html(lang='en')
                             span.navbar-text 2017 Montclair Kimberley Academy. All rights reserved.
 
         script(src='../scripts/nav.js')
-

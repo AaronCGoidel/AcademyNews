@@ -4,14 +4,13 @@ section.featured-content .title {
 }
 
 section.featured-content .featured-container {
-    background: #072e51;
+    background: #2C3E50;
     padding-top: 25px;
     padding-right: 25px;
     padding-left: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
-    box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.26);
-
+    box-shadow: 1px 5px 7px 0px rgba(50, 50, 50, 0.64);
 }
 
 section.featured-content .featured-container .featured-wrapper {

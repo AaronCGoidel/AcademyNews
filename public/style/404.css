@@ -25,3 +25,7 @@ p span {
     display: block;
     font-style: normal;
 }
+
+img {
+    max-width: 100%;
+}
