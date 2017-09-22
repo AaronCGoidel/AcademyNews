@@ -36,6 +36,9 @@ router.use(function (req,res,next) {
     next();
 });
 
+
+
+
 router.use(bodyParser.urlencoded({extended:false}));
 router.use(cookieParser());
 
@@ -134,6 +137,8 @@ app.use("*",function(req,res){
 });
 
 //db.sequelize.sync({force:true});
+
+//db.Article.destroy({where: {id:'003'}});
 
 app.listen(PORT,function(){
     console.log("Listening on Port " + PORT);

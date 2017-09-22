@@ -4,7 +4,7 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
 
-        title The Academy News | MKA's Student Run Newspaper
+        title=currentArticle.title + " | The Academy News"
 
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
         link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
@@ -25,7 +25,10 @@ html(lang='en')
                 span.nav-item.title MENU
                 a.nav-item(href='/') Home
                 a.nav-item(href="/category/all") All
-                a.nav-item(href='/coming_soon') Sports
+                a.nav-item(href='/category/sports') Sports
+                a.nav-item(href='/category/stem') STEM
+                a.nav-item(href='/category/studentlife') Student Life
+                a.nav-item(href='/category/mkanews') MKA News
                 a.nav-item(href='/coming_soon') About
             nav.navbar
                 // nav bar
@@ -52,7 +55,6 @@ html(lang='en')
             figure
                 img(src=currentArticle.imageURL, width="100%")
                 figcaption
-                strong Photo Credit:&nbsp
                 strong=currentArticle.photoCred
             main!=md(currentArticle.content)
 
