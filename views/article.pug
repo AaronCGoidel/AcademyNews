@@ -48,9 +48,7 @@ html(lang='en')
                 .category
                 h1.headline=currentArticle.title
                 .meta
-                    span.author
-                        | by:&nbsp
-                        span.author-name=currentArticle.author
+                    span.author="by: " + currentArticle.author
                     span.pub-date=moment(currentArticle.createdAt).format('MMMM Do YYYY')
 
 

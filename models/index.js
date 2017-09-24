@@ -11,10 +11,10 @@ var db = {};
 var sequelize = new Sequelize(process.env.DATABASE_URL || config.data.URL);
 
 
-db["Article"]=sequelize['import'](__dirname + "/article.js");
+db["Article"] = sequelize['import'](__dirname + "/article.js");
 
-Object.keys(db).forEach(function(modelName) {
-    if (db[modelName].associate) {
+Object.keys(db).forEach(function(modelName){
+    if(db[modelName].associate){
         db[modelName].associate(db);
     }
 });

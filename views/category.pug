@@ -58,8 +58,9 @@ html(lang='en')
                                                         h4.card-title=post.title
                                                         p.card-text=post.blurb
                                                         p.card-text
-                                                            small By:&nbsp
-                                                            small=post.author
+                                                            small="By: " + post.author
+                                                        p.card-text
+                                                            small=moment(post.createdAt).fromNow()
         footer
             nav.navbar
                 .container

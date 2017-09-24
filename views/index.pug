@@ -57,8 +57,9 @@ html(lang='en')
                                             .card-block
                                                 h4.card-title=featured.title
                                                 p.card-text
-                                                    small By:&nbsp
-                                                    small=featured.author
+                                                    small="By: " + featured.author
+                                                p.card-text
+                                                    small=moment(featured.createdAt).fromNow()
             .row
                 // display all articles
                 .col-main-8
@@ -74,8 +75,9 @@ html(lang='en')
                                                     h4.card-title=post.title
                                                     p.card-text=post.blurb
                                                     p.card-text
-                                                        small By:&nbsp
-                                                        small=post.author
+                                                        small="By: " + post.author
+                                                    p.card-text
+                                                        small=moment(post.createdAt).fromNow()
                 .col-main-4
                     a.twitter-timeline(href='https://twitter.com/TwitterDev/timelines/539487832448843776' height="400") National Park Tweets - Curated tweets by TwitterDev
                     script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')

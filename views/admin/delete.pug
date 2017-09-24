@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Remove | The Academy News
+    body
+        form(action="/delete" accept-charset="utf-8" method="POST").form-horizontal
+            fieldset
+                legend Remove Article
+                .form-group
+                    label.col-md-4.control-label(for='id') ID
+                    .col-md-4
+                        input#id.form-control.input-md(name='id', type='text', placeholder='id of article to be deleted')
+                button.input_submit(type='submit') Submit
