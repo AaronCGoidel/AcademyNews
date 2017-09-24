@@ -51,7 +51,9 @@ html(lang='en')
                     span.author
                         | by:&nbsp
                         span.author-name=currentArticle.author
-                    span.pub-date=currentArticle.publishDate
+                    span.pub-date=moment(currentArticle.createdAt).format('MMMM Do YYYY')
+
+
             figure
                 img(src=currentArticle.imageURL, width="100%")
                 figcaption

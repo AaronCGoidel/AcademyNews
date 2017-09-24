@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes){
             primaryKey: true
         },
         title: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
         blurb: {
             type: DataTypes.TEXT
@@ -20,9 +20,6 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING
         },
         photoCred: {
-            type: DataTypes.STRING
-        },
-        publishDate: {
             type: DataTypes.STRING
         },
         tags: {

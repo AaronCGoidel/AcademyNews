@@ -5,17 +5,13 @@ html(lang='en')
         meta(charset='UTF-8')
         title Upload | The Academy News
     body
-        form(action="/upload" method="POST").form-horizontal
+        form(action="/upload" accept-charset="utf-8" method="POST").form-horizontal
             fieldset
                 legend Submit Article
                 .form-group
                     label.col-md-4.control-label(for='author') Author
                     .col-md-4
                         input#author.form-control.input-md(name='author', type='text', placeholder='name of author')
-                .form-group
-                    label.col-md-4.control-label(for='id') ID
-                    .col-md-4
-                        input#id.form-control.input-md(name='id', type='text', placeholder='id')
                 .form-group
                     label.col-md-4.control-label(for='title') Title
                     .col-md-4
@@ -36,10 +32,6 @@ html(lang='en')
                     label.col-md-4.control-label(for='photoCred') Photo Cred
                     .col-md-4
                         input#photoCred.form-control.input-md(name='photoCred', type='text', placeholder='photo credit')
-                .form-group
-                    label.col-md-4.control-label(for='publishDate') Date
-                    .col-md-4
-                        input#publishDate.form-control.input-md(name='publishDate', type='text', placeholder='date')
                 .form-group
                     label.col-md-4.control-label(for='tag') Tags
                     .col-md-4

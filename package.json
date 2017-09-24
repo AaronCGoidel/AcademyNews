@@ -1,6 +1,6 @@
 {
   "name": "academy-news",
-  "version": "0.9.8",
+  "version": "0.9.10",
   "description": "The website for the MKA newspaper",
   "main": "app.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "cookie-parser": "^1.4.3",
     "express": "4.15.4",
     "marked": "^0.3.6",
+    "moment": "^2.18.1",
     "mysql": "^2.14.1",
     "pg": "^7.3.0",
     "pug": "2.0.0-rc.3",

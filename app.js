@@ -4,6 +4,7 @@ var router = express.Router();
 var pg = require('pg');
 var bodyParser = require('body-parser');
 var md = require('marked');
+var moment = require('moment');
 var cookieParser = require('cookie-parser');
 const db = require('./models');
 
@@ -35,9 +36,6 @@ router.use(function (req,res,next) {
     console.log("/" + req.method);
     next();
 });
-
-
-
 
 router.use(bodyParser.urlencoded({extended:false}));
 router.use(cookieParser());
@@ -78,7 +76,7 @@ router.get("/article/*", function(req, res) {
         where: {
             id: getID
         }
-    }).then(currentArticle => res.render("article", {md, currentArticle}))
+    }).then(currentArticle => res.render("article", {md, moment,currentArticle}));
 });
 
 router.get("/category/:tag", function(req, res) {
@@ -110,14 +108,19 @@ function authMiddleware(req, res, next){
 
 // authenticated route to access upload page
 router.get("/upload", authMiddleware, function(req, res) {
-    res.render("upload")
+    res.render("admin/upload")
 });
 
 // post article with content from form
 router.post("/upload", authMiddleware, function(req, res) {
     var tags = req.body.tag.split(",");
-    const {author, id, title, blurb, content, imageURL, photoCred, publishDate} = req.body;
-    db.Article.create({author, id, title, blurb, content, imageURL, photoCred, publishDate, tags});
+    var id = req.body.title
+            .toLowerCase()
+            .replace(/[^\w ]+/g,'')
+            .replace(/ +/g,'-');
+
+    const {author, title, blurb, content, imageURL, photoCred} = req.body;
+    db.Article.create({author, id, title, blurb, content, imageURL, photoCred, tags});
     res.redirect(`/article/${id}`);
 });
 
@@ -135,10 +138,6 @@ app.use("/",router);
 app.use("*",function(req,res){
     res.status(404).render("404");
 });
-
-//db.sequelize.sync({force:true});
-
-//db.Article.destroy({where: {id:'003'}});
 
 app.listen(PORT,function(){
     console.log("Listening on Port " + PORT);
