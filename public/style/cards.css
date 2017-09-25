@@ -1,1 +1,65 @@
-.card{background:#fbfbfb;border:none;border-radius:0}.card .feat{height:428px}.card .card-small{background:#fbfbfb;box-shadow:0 20px 30px -15px rgba(0,0,0,.5);height:auto}.card .card-text,.card .card-title{color:#232323}.card.split .card-block .card-caption{height:auto;overflow:hidden}.card.split .card-block .card-title{font-size:20px;color:#232323}.card .card-link{color:inherit;text-decoration:none}.card .card-icon{position:absolute;top:10px;left:10px;z-index:1;color:#fff}.card .card-img{width:100%;height:245px;border-radius:0}.card .card-block .card-title{font-size:20px;font-weight:700;margin-bottom:10px}.card .card-block .card-title:last-child{margin-bottom:0}.card .card-block .card-text{font-size:14px;margin-bottom:10px;line-height:20px}.card .card-block .card-text:last-child{margin-bottom:0}.card .card-block .card-text small{color:#036a4d}.card .card-img-overlay{padding:0;background:linear-gradient(180deg,hsla(0,0%,100%,0) 50%,rgba(0,0,0,.3))}.card .card-img-overlay .card-block{position:absolute;bottom:0;left:0;padding:10px}.card .card-img-overlay .card-block .card-title{font-size:32px}.card .card-img-overlay .card-block .card-text{font-size:14px}@media (min-width:992px) and (max-width:1199px){.card.split .card-block .card-caption{height:108px}}
+.card {
+    border: none;
+    border-radius: 0
+}
+
+.card .feat {
+    height: 428px;
+    background-color: #2c3e50;
+}
+
+.card .card-small {
+    background: #fbfbfb;
+    box-shadow: 0 20px 30px -15px rgba(0, 0, 0, .5);
+    height: auto
+}
+
+.card .card-text, .card .card-title {
+    color: #232323
+}
+
+.card.split .card-block .card-caption {
+    height: auto;
+    overflow: hidden
+}
+
+.card.split .card-block .card-title {
+    font-size: 20px;
+    color: #232323
+}
+
+.card .card-link {
+    color: inherit;
+    text-decoration: none
+}
+
+.card .card-img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: 245px;
+    border-radius: 0;
+}
+
+.card .card-block {
+    height: auto;
+    min-height: 183px;
+    background-color: #ffffff;
+}
+
+.card .card-block .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px
+}
+
+.card .card-block .card-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 20px
+}
+
+
+.card .card-block .card-text small {
+    color: #036a4d
+}
