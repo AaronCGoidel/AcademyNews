@@ -6,9 +6,11 @@ var bodyParser = require('body-parser');
 var md = require('marked');
 var moment = require('moment');
 var cookieParser = require('cookie-parser');
+var crypto = require('crypto');
 const db = require('./models');
 
-const AUTH_TOKEN = "goodsecurity"; // admin auth token
+var AUTH_TOKEN = "HZMhR6YCtsgesm47T5uRMDqam9SDbuXElFdj1oMXhZk="; // I'm just gonna store the hash right here
+
 
 pg.defaults.ssl = true;
 
@@ -137,7 +139,7 @@ router.post("/delete", authMiddleware, function(req, res){
 
 // cookie auth token
 router.get("/auth/:token", function(req, res){
-    if(req.params.token === AUTH_TOKEN){
+    if(crypto.createHash('sha256').update(req.params.token).digest('base64') === AUTH_TOKEN){
         res.cookie("token", AUTH_TOKEN);
         res.redirect("/upload")
     } else{
