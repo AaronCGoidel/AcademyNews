@@ -42,6 +42,7 @@ router.use(function(req, res, next){
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(cookieParser());
 
+// ==================USER PAGES==================
 // homepage
 router.get("/", async function(req, res){
 
@@ -81,6 +82,7 @@ router.get("/article/*", function(req, res){
     }).then(currentArticle => res.render("article", {md, moment, currentArticle}));
 });
 
+// serve articles based on a tag
 router.get("/category/:tag", function(req, res){
     if(req.params.tag === "all"){
         db.Article.findAll({
@@ -101,17 +103,33 @@ router.get("/coming_soon", function(req, res){
     res.render("comingSoon")
 });
 
+// ==================ADMIN PAGES==================
 // middleware for authenticating admin
 function authMiddleware(req, res, next){
     if(req.cookies.token === AUTH_TOKEN){
         next();
     } else{
-        res.status(401).send("not authenticated").end();
+        res.status(401).redirect("/admin/login").end();
     }
 }
 
+// login for admin users
+router.get("/admin/login", function(req, res){
+    res.render("admin/login")
+});
+
+// cookie auth token
+router.post("/auth", function(req, res){
+    if(crypto.createHash('sha256').update(req.body.pw).digest('base64') === AUTH_TOKEN){
+        res.cookie("token", AUTH_TOKEN);
+        res.redirect("/admin/upload")
+    } else{
+        res.status(401).redirect("/admin/login").end();
+    }
+});
+
 // authenticated route to access upload page
-router.get("/upload", authMiddleware, function(req, res){
+router.get("/admin/upload", authMiddleware, function(req, res){
     res.render("admin/upload")
 });
 
@@ -128,25 +146,18 @@ router.post("/upload", authMiddleware, function(req, res){
     res.redirect(`/article/${id}`);
 });
 
-router.get("/delete", authMiddleware, function(req, res){
+// authenticated route to delete an article by id
+router.get("/admin/delete", authMiddleware, function(req, res){
     res.render("admin/delete")
 });
 
+// run deletion based on post from delete page
 router.post("/delete", authMiddleware, function(req, res){
     db.Article.destroy({where: {id: req.body.id}});
     res.redirect("/")
 });
 
-// cookie auth token
-router.get("/auth/:token", function(req, res){
-    if(crypto.createHash('sha256').update(req.params.token).digest('base64') === AUTH_TOKEN){
-        res.cookie("token", AUTH_TOKEN);
-        res.redirect("/upload")
-    } else{
-        res.status(401).send("not authenticated").end();
-    }
-});
-
+// ==================BASIC ROUTING==================
 app.use("/", router);
 
 // 404 page: render and throw

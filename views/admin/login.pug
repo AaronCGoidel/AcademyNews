@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Login | The Academy News
+    body
+        form(action="/auth" accept-charset="utf-8" method="POST").form-horizontal
+            fieldset
+                legend Remove Article
+                .form-group
+                    label.col-md-4.control-label(for='pw') Admin Password
+                    .col-md-4
+                        input#pw.form-control.input-md(name='pw', type='password', placeholder='password')
+                button.input_submit(type='submit') Submit
